@@ -8,12 +8,12 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <!--TITLE-->
+    <!--TOP BAR-->
     <div class="topnav">
       <h1>Sensor Reader Dashboard <i class="fas fa-clipboard-list"></i></h1>
     </div>
 
-    <!--LOGIN BAR-->
+    <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
     <div id="authentication-bar" style="display: none;">
       <p><span id="authentication-status">User logged in</span>
          <span id="user-details">USEREMAIL</span>
@@ -38,7 +38,7 @@
       <div class="cards">
         <!--DISTANCE-->
         <div class="card">
-          <p>DISTANCE</p>
+          <p class="icon-text"><i class="fas fa-ruler"></i> Distance</p>
           <p><span class="reading"><span id="dist"></span> cm</span></p>
         </div>
       </div>
