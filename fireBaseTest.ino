@@ -75,7 +75,7 @@ void loop(){
   // Check if authentication is ready
   if (app.ready()){ 
     if(uid.length() == 0){
-       uid = user_auth.token.uid;
+       uid = app.getUid();
        Serial.print("User UID: ");
        Serial.println(uid);
     }
@@ -95,8 +95,8 @@ void loop(){
   Serial.print("distance = ");
   Serial.println(distance);
   delay(70);
-      String dbPathdist = "UsersData/" + uid + "/dist";
-      Database.set(aClient, "UsersData/" + uid + "/distance", distance, "Dist");
+      String dbPathdist = "/UsersData/" + uid + "/dist";
+      Database.set(aClient, dbPathdist, distance, processData, "dist_Send_Float");
     }
   }
 }
@@ -117,14 +117,14 @@ void processData(AsyncResult &aResult) {
   if (aResult.available()){
     Firebase.printf("task: %s, payload: %s\n", aResult.uid().c_str(), aResult.c_str());
     String payload= aResult.c_str();
-    if(aResult.uid()=="RTDB_GetInt"){
+    if(aResult.uid()=="distGetInt"){
         intValue= payload.toInt();
         Firebase.printf("int value obtained is %d",intValue);
     }
-    else if(aResult.uid()=="RTDB_GetFloat"){
+    else if(aResult.uid()=="distGetFloat"){
         floatValue= payload.toFloat();
         Firebase.printf("float value obtained is %f",floatValue);}
-    else if(aResult.uid()=="RTDB_GetString"){
+    else if(aResult.uid()=="distGetString"){
         stringValue= payload;
         Firebase.printf("string value obtained is %s",stringValue);
     }
