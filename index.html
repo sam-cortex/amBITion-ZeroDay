@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP IoT Firebase App</title>
+    <link rel="icon" type="image/png" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.R6k4g_QDvYmd6SXZDry4hwHaEK%3Fcb%3D12%26pid%3DApi&f=1&ipt=2121fd0e8d9ac052e997454a75dd7e25db4a3ba17521b2ada7ee3e7626b01210&ipo=images">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <!--TOP BAR-->
+    <div class="topnav">
+      <h1>Sensor Reader Dashboard <i class="fas fa-clipboard-list"></i></h1>
+    </div>
+
+    <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
+    <div id="authentication-bar" style="display: none;">
+      <p><span id="authentication-status">User logged in</span>
+         <span id="user-details">USEREMAIL</span>
+         <a href="#" id="logout-link">(logout)</a>
+      </p>
+    </div>
+
+    <!--LOGIN FORM-->
+    <form id="login-form" style="display: none;">
+      <div class="form-elements-container">
+        <label for="input-email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Username" id="input-email" required>
+        <label for="input-password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="input-password" required>
+        <button type="submit" id="login-button">Login</button>
+        <p id="error-message" style="color:red;"></p>
+      </div>
+    </form>
+
+    <!--CONTENT (SENSOR READINGS)-->
+    <div class="content-sign-in" id="content-sign-in" style="display: none;">
+      <div class="cards">
+        <!--DISTANCE-->
+        <div class="card">
+          <p>DISTANCE</p>
+          <p><span class="reading"><span id="dist"></span> cm</span></p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="script/auth.js"></script>
+    <script type="module" src="script/index.js"></script>
+  </body>
+</html>
