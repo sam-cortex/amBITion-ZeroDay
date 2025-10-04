@@ -4,12 +4,12 @@ import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11
 
 // Firebase configuration as provided
 const firebaseConfig = {
-  apiKey: "AIzaSyDpqjicaEHzrPYMbO9VdgM9AI-ksqrLqI0",
-  authDomain: "sensor-reading-6a414.firebaseapp.com",
-  projectId: "sensor-reading-6a414",
-  storageBucket: "sensor-reading-6a414.firebasestorage.app",
-  messagingSenderId: "289032500561",
-  appId: "1:289032500561:web:c2015d4cb92e2407a00f70"
+  apiKey: "enter apiKey",
+  authDomain: "enter authDomain",
+  projectId: "enter projectId",
+  storageBucket: "enter storageBucket",
+  messagingSenderId: "enter messagingSenderId",
+  appId: "enter appId"
 };
 
 // Initializeing Firebase
@@ -60,4 +60,5 @@ const setupUI = (user) => {
 };
 
 // Expose setupUI to global scope for auth.js
+
 window.setupUI = setupUI;
