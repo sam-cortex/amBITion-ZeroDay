@@ -4,18 +4,18 @@ import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11
 
 // Firebase configuration as provided
 const firebaseConfig = {
-  apiKey: "ENTER API KEY",
-  authDomain: "ENTER AUTH DOMAIN",
-  projectId: "ENTER PROJECT ID",
-  storageBucket: "ENTER STORAGE BUCKET",
-  messagingSenderId: "ENTER MESSAGING SENDER ID",
-  appId: "APP ID"
+  apiKey: "AIzaSyDpqjicaEHzrPYMbO9VdgM9AI-ksqrLqI0",
+  authDomain: "sensor-reading-6a414.firebaseapp.com",
+  projectId: "sensor-reading-6a414",
+  storageBucket: "sensor-reading-6a414.firebasestorage.app",
+  messagingSenderId: "289032500561",
+  appId: "1:289032500561:web:c2015d4cb92e2407a00f70"
 };
 
 // Initializeing Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const database = getDatabase(app);
+const database = getDatabase(app, "https://sensor-reading-6a414-default-rtdb.asia-southeast1.firebasedatabase.app/");
 
 // Export auth for use in auth.js
 export { auth };
@@ -25,7 +25,7 @@ const loginElement = document.querySelector('#login-form');
 const contentElement = document.querySelector("#content-sign-in");
 const userDetailsElement = document.querySelector('#user-details');
 const authBarElement = document.querySelector("#authentication-bar");
-const tempElement = document.getElementById("dist");
+const distElement = document.getElementById("dist");
 
 // Manage Login or Logout UI
 const setupUI = (user) => {
@@ -39,16 +39,16 @@ const setupUI = (user) => {
 
     // Define database paths
     const uid = user.uid;
-    const dbPathdist = 'UsersData/${uid}/dist';
-    
+   const dbPathdist = `UsersData/${uid}/dist`;
 
     // Database references
     const dbRefdist = ref(database, dbPathdist);
 
     // Update page with new readings
     onValue(dbRefdist, (snap) => {
-      distElement.innerText = snap.val()?.toFixed(2) ?? "N/A";
-    });
+  const val = parseFloat(snap.val());
+  distElement.innerText = isNaN(val) ? "N/A" : val.toFixed(2);
+});
 
   } else {
     // Toggle UI elements
@@ -60,5 +60,4 @@ const setupUI = (user) => {
 };
 
 // Expose setupUI to global scope for auth.js
-
 window.setupUI = setupUI;
