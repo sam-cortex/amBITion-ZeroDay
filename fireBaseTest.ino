@@ -7,13 +7,13 @@
 #include <FirebaseClient.h>
 
 // Network and Firebase credentials
-#define WIFI_SSID "KOLIGE HOUSE 4G"
-#define WIFI_PASSWORD "SAVI#3jenu"
+#define WIFI_SSID "Enter WIFI_SSID"
+#define WIFI_PASSWORD "Enter WIFI_PASSWORD"
 
-#define Web_API_KEY "AIzaSyDpqjicaEHzrPYMbO9VdgM9AI-ksqrLqI0"
-#define DATABASE_URL "https://sensor-reading-6a414-default-rtdb.asia-southeast1.firebasedatabase.app/"
-#define USER_EMAIL "abcd@gmail.com"
-#define USER_PASS "123456"
+#define Web_API_KEY "Enter Web_API_KEY"
+#define DATABASE_URL "Enter DATABASE_URL"
+#define USER_EMAIL "Enter USER_EMAIL"
+#define USER_PASS "Enter USER_PASS"
 
 // User function
 void processData(AsyncResult &aResult);
@@ -129,4 +129,5 @@ void processData(AsyncResult &aResult) {
         Firebase.printf("string value obtained is %s",stringValue);
     }
     
+
 }}
